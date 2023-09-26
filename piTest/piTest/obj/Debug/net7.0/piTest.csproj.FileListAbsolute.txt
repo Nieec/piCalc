@@ -1,0 +1,15 @@
+/Users/nicsauer/Projects/piTest/piTest/bin/Debug/net7.0/piTest
+/Users/nicsauer/Projects/piTest/piTest/bin/Debug/net7.0/piTest.deps.json
+/Users/nicsauer/Projects/piTest/piTest/bin/Debug/net7.0/piTest.runtimeconfig.json
+/Users/nicsauer/Projects/piTest/piTest/bin/Debug/net7.0/piTest.dll
+/Users/nicsauer/Projects/piTest/piTest/bin/Debug/net7.0/piTest.pdb
+/Users/nicsauer/Projects/piTest/piTest/obj/Debug/net7.0/piTest.csproj.AssemblyReference.cache
+/Users/nicsauer/Projects/piTest/piTest/obj/Debug/net7.0/piTest.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nicsauer/Projects/piTest/piTest/obj/Debug/net7.0/piTest.AssemblyInfoInputs.cache
+/Users/nicsauer/Projects/piTest/piTest/obj/Debug/net7.0/piTest.AssemblyInfo.cs
+/Users/nicsauer/Projects/piTest/piTest/obj/Debug/net7.0/piTest.csproj.CoreCompileInputs.cache
+/Users/nicsauer/Projects/piTest/piTest/obj/Debug/net7.0/piTest.dll
+/Users/nicsauer/Projects/piTest/piTest/obj/Debug/net7.0/refint/piTest.dll
+/Users/nicsauer/Projects/piTest/piTest/obj/Debug/net7.0/piTest.pdb
+/Users/nicsauer/Projects/piTest/piTest/obj/Debug/net7.0/piTest.genruntimeconfig.cache
+/Users/nicsauer/Projects/piTest/piTest/obj/Debug/net7.0/ref/piTest.dll
