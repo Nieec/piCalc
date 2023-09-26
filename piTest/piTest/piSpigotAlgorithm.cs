@@ -5,8 +5,6 @@ using static System.Net.Mime.MediaTypeNames;
 
 public class piSpigotAlgorithm
 {
-    private static string piCheck = "";
-    private static string calculatedPi = "";
     private static bool isDone;
 
     public static void Main()
@@ -16,15 +14,10 @@ public class piSpigotAlgorithm
 
         Task.WaitAll(
             printTimeAsync(),
-            loadChecker(digits),
             calculatePiToDigit(digits)
             );
-        if (piCheck.Equals(calculatedPi))
-        {
-            Console.WriteLine("Check complete: Calculation is accurate");
-        }
-        writeToFile();
-        
+
+        checkForCorrectResult(digits);
     }
 
     private static async Task calculatePiToDigit(int digits)
@@ -34,10 +27,12 @@ public class piSpigotAlgorithm
         isDone = false;
         int[] quotient = fillQuotient(digits);
         int[] rest = new int[digits * 10 / 3];
+        int[] pi = new int[digits];
+        int carryFix = 0;
         //int nines = 0;
         //int predigit = 0;
+        string calculatedPi = "";
 
-        int[] pie = new int[digits];
 
         for (int j = 0; j < digits; j++)
         {
@@ -63,24 +58,24 @@ public class piSpigotAlgorithm
                     quotient[i - 1] += carry * num;
                 }
             }
-            pie[j] = quotient[0] / 10;
+            pi[j] = quotient[0] / 10;
             for (int k = 0; k < quotient.Length; k++)
             {
                 quotient[k] = rest[k] * 10;
             }
         }
 
-        int carryfix = 0;
         for (int i = digits - 1; i >= 0; i--)
         {
-            pie[i] += carryfix;
-            carryfix = pie[i] / 10;
-            calculatedPi = (pie[i] % 10).ToString() + calculatedPi;
+            pi[i] += carryFix;
+            carryFix = pi[i] / 10;
+            calculatedPi = (pi[i] % 10).ToString() + calculatedPi;
         }
         calculatedPi = calculatedPi.Insert(1, ".");
 
         isDone = true;
         Console.WriteLine("Calculation complete.");
+        writeToFile(calculatedPi);
     }
 
     static int[] fillQuotient(int digits)
@@ -88,7 +83,7 @@ public class piSpigotAlgorithm
         int[] q = new int[digits * 10 / 3];
         for (int i = 0; i < (digits * 10 / 3); i++)
         {
-            q[i] = 20;
+            q[i] = 2 * 10;
         }
         return q;
     }
@@ -102,18 +97,18 @@ public class piSpigotAlgorithm
         }
     }
 
-    static async Task loadChecker(int digits)
+    static void checkForCorrectResult(int digits)
     {
-        await Task.Yield();
-        char[] text = File.ReadAllText("/users/nicsauer/pi1000000.txt").ToCharArray();
-        for (int i = 0; i < (digits + 1); i++)
-        {
-            piCheck += text[i];
+        if(File.ReadAllText("/workspaces/piCalc/piTest/piTest/pi1000000.txt").Remove(digits+1)
+        .Equals(File.ReadAllText("/workspaces/piCalc/piTest/piTest/piOutput.txt"))) {
+            Console.WriteLine("Calculation correct.");
+        } else {
+            Console.WriteLine("Calculation incorrect");
         }
     }
 
-    static void writeToFile()
+    static void writeToFile(string calculatedPi)
     {
-        //File.WriteAllTextAsync("", calculatedPi);
+        File.WriteAllTextAsync("/workspaces/piCalc/piTest/piTest/piOutput.txt", calculatedPi);
     }
 }
