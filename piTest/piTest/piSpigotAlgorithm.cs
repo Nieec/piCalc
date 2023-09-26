@@ -34,8 +34,8 @@ public class piSpigotAlgorithm
         isDone = false;
         int[] quotient = fillQuotient(digits);
         int[] rest = new int[digits * 10 / 3];
-        int nines = 0;
-        int predigit = 0;
+        //int nines = 0;
+        //int predigit = 0;
 
         int[] pie = new int[digits];
 
