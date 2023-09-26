@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = piTest
-build_property.ProjectDir = /Users/nicsauer/Projects/piTest/piTest/
+build_property.ProjectDir = /workspaces/piCalc/piTest/piTest/
